@@ -45,5 +45,9 @@ class ItemsApiTestCase(unittest.TestCase):
         # Check that "Sample Item 1" is in the list of names
         self.assertIn('Sample Item 1', names)
 
+    def test_fail(self):
+        """Just a fail test for pipeline"""
+        self.assertEqual(True, False)
+
 if __name__ == '__main__':
     unittest.main()
