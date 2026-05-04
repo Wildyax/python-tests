@@ -91,3 +91,24 @@ jobs:
             -Dsonar.organization=wildyax
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  lint:
+    name: Lint with Ruff
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer Ruff
+        run: |
+          pip install ruff
+
+      - name: Lancer Ruff
+        run: |
+          ruff check .
