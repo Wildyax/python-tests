@@ -1,4 +1,6 @@
 __pycache__/
 venv/
+htmlcov/
+.coverage
 .pytest_cache
 pyrightconfig.json
