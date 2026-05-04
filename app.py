@@ -22,7 +22,7 @@ conn.close()
 # Define the GET /items endpoint
 @app.route('/items', methods=['GET'])
 def get_items():
-    # Connect to the database and fetch all items
+    # Connect to the database and fetch all items in it
     conn = sqlite3.connect('items.db')
     cursor = conn.cursor()
     cursor.execute("SELECT id, name FROM items")
