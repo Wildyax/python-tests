@@ -23,13 +23,13 @@ pipeline {
 
         stage('Unit tests') {
             steps {
-                sh 'python3 -m pytest test_app.py'
+                sh 'python -m pytest test_app.py'
             }
         }
 
         stage('Integration tests') {
             steps {
-                sh 'python3 -m pytest test_integration.py'
+                sh 'python -m pytest test_integration.py'
             }
         }
 
