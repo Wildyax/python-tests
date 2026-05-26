@@ -15,7 +15,9 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh "python -m pip install -r requirements.txt"
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh "python -m pip install -r requirements.txt"
+                }
             }
         }
 
