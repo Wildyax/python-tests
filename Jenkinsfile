@@ -23,15 +23,13 @@ pipeline {
 
         stage('Unit tests') {
             steps {
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh 'python3 pytest test_app.py'
-                }
+                sh 'python3 -m pytest test_app.py'
             }
         }
 
         stage('Integration tests') {
             steps {
-                sh 'python3 pytest test_integration.py'
+                sh 'python3 -m pytest test_integration.py'
             }
         }
 
