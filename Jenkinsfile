@@ -5,6 +5,10 @@ pipeline {
         }
     }
 
+    environment {
+        HOME = "/tmp"
+    }
+
     stages {
 
         stage('Checkout') {
@@ -15,7 +19,10 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh "pip3 install -r requirements.txt"
+                sh '''
+                    python3 -m pip install --upgrade pip
+                    python3 -m pip install -r requirements.txt
+                '''
             }
         }
 
@@ -30,6 +37,5 @@ pipeline {
                 sh 'python3 -m pytest test_integration.py'
             }
         }
-
     }
 }
