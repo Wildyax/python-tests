@@ -15,21 +15,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh "python -m pip install -r requirements.txt"
-                }
+                sh "python3 -m pip install -r requirements.txt"
             }
         }
 
         stage('Unit tests') {
             steps {
-                sh 'python -m pytest test_app.py'
+                sh 'python3 -m pytest test_app.py'
             }
         }
 
         stage('Integration tests') {
             steps {
-                sh 'python -m pytest test_integration.py'
+                sh 'python3 -m pytest test_integration.py'
             }
         }
 
