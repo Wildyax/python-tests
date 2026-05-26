@@ -15,10 +15,10 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh '''
-                    python -m pip install --upgrade pip
-                    python -m pip install -r requirements.txt
-                '''
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh "pip install -r requirements.txt"
+                    # python stuff
+                }
             }
         }
 
